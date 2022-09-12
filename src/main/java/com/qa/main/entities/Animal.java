@@ -29,5 +29,24 @@ public class Animal {
         super();
     }
 	
+	public Animal(String commonName, String genus, float size, String typeGenus) {
+		super();
+		this.commonName = commonName;
+		this.genus = genus;
+		this.size = size;
+		this.typeGenus = typeGenus;
+	}
+	
+	public Animal(long id, String commonName, String genus, float size, String typeGenus) {
+		super();
+		this.id = id;
+		this.commonName = commonName;
+		this.genus = genus;
+		this.size = size;
+		this.typeGenus = typeGenus;
+	}
+	
+	
+	
 	
 }
