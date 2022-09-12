@@ -1,5 +1,7 @@
 package com.qa.main.services;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.qa.main.entities.Animal;
@@ -17,6 +19,22 @@ public class AnimalService {
 
 	public Animal create(Animal input) {
 		return repo.saveAndFlush(input);
+	}
+	
+	public List<Animal> getAll() {
+		return repo.findAll();
+	}
+	
+	public Animal getById(long id) {
+		return repo.findById(id).get();
+	}
+	
+	public List<Animal> getByTypeGenus(String typeGenus) {
+			return repo.findAnimalByTypeGenus(typeGenus);
+	}
+	
+	public List<Animal> getByCommonNameContaining(String commonName) {
+			return repo.findByCommonNameContaining(commonName);
 	}
 	
 	
