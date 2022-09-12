@@ -43,6 +43,12 @@ public class AnimalController {
 	@GetMapping("/getByTypeGenus/{typeGenus}")
 	public List<Animal> getByTypeGenus(@PathVariable String typeGenus) {
 			return service.getByTypeGenus(typeGenus);
+	
 	}
+	@GetMapping("/getByCommonNameContaining/{commonName}")
+	public List<Animal> getByCommonNameContaining(@PathVariable String commonName) {
+			return service.getByCommonNameContaining(commonName);
+	}
+	
 			
 }
