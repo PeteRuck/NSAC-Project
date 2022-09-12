@@ -46,7 +46,46 @@ public class Animal {
 		this.typeGenus = typeGenus;
 	}
 	
-	
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getCommonName() {
+		return commonName;
+	}
+
+	public void setCommonName(String commonName) {
+		this.commonName = commonName;
+	}
+
+	public String getGenus() {
+		return genus;
+	}
+
+	public void setGenus(String genus) {
+		this.genus = genus;
+	}
+
+	public float getSize() {
+		return size;
+	}
+
+	public void setSize(float size) {
+		this.size = size;
+	}
+
+	public String getTypeGenus() {
+		return typeGenus;
+	}
+
+	public void setTypeGenus(String typeGenus) {
+		this.typeGenus = typeGenus;
+	}
+
 	
 	
 }
