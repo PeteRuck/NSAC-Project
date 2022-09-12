@@ -23,42 +23,42 @@ public class AnimalController {
 		private AnimalService service;
 	
 		public AnimalController(AnimalService service) {
-			super();
-			this.service = service;
+				super();
+				this.service = service;
+		}
+		
+		@PostMapping("/create")
+		public ResponseEntity<Animal> create(@RequestBody Animal input) {
+				return new ResponseEntity <Animal>(service.create(input), HttpStatus.CREATED);
+		}
+		
+		@GetMapping("/getAll") 
+		public List<Animal> getAll() {
+				return service.getAll();
+		}
+		
+		@GetMapping("/getById/{id}")
+		public Animal getById(@PathVariable long id) {
+				return service.getById(id);
+		}
+		
+		@GetMapping("/getByTypeGenus/{typeGenus}")
+		public List<Animal> getByTypeGenus(@PathVariable String typeGenus) {
+				return service.getByTypeGenus(typeGenus);
+		
+		}
+		@GetMapping("/getByCommonNameContaining/{commonName}")
+		public List<Animal> getByCommonNameContaining(@PathVariable String commonName) {
+				return service.getByCommonNameContaining(commonName);
+		}
+		
+		@PutMapping("/update/{id}")
+		public Animal update(@PathVariable long id, @RequestBody Animal input) {
+				return service.update(id, input);
+		}
+		
+		@DeleteMapping("/delete/{id}")
+		public boolean delete(@PathVariable long id) {
+				return service.delete(id);
+		}
 	}
-	
-	@PostMapping("/create")
-	public ResponseEntity<Animal> create(@RequestBody Animal input) {
-			return new ResponseEntity <Animal>(service.create(input), HttpStatus.CREATED);
-	}
-	
-	@GetMapping("/getAll") 
-	public List<Animal> getAll() {
-			return service.getAll();
-	}
-	
-	@GetMapping("/getById/{id}")
-	public Animal getById(@PathVariable long id) {
-			return service.getById(id);
-	}
-	
-	@GetMapping("/getByTypeGenus/{typeGenus}")
-	public List<Animal> getByTypeGenus(@PathVariable String typeGenus) {
-			return service.getByTypeGenus(typeGenus);
-	
-	}
-	@GetMapping("/getByCommonNameContaining/{commonName}")
-	public List<Animal> getByCommonNameContaining(@PathVariable String commonName) {
-			return service.getByCommonNameContaining(commonName);
-	}
-	
-	@PutMapping("/update/{id}")
-	public Animal update(@PathVariable long id, @RequestBody Animal input) {
-			return service.update(id, input);
-	}
-	
-	@DeleteMapping("/delete/{id}")
-	public boolean delete(@PathVariable long id) {
-			return service.delete(id);
-	}
-}
