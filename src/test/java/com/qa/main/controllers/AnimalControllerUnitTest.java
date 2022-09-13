@@ -1,5 +1,6 @@
 package com.qa.main.controllers;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
@@ -123,5 +124,23 @@ public class AnimalControllerUnitTest {
 	
 	}
 	
+	@Test
+	public void deleteTest() throws Exception {
+		Mockito.when(service.delete(1L)).thenReturn(true);
+		
+		mvc.perform(delete("/animal/delete/1")
+			.contentType(MediaType.APPLICATION_JSON))
+			.andExpect(status().isOk())
+			.andExpect(content().string("true"));
+	}
 	
+	@Test
+	public void deleteFailTest() throws Exception {
+		Mockito.when(service.delete(1L)).thenReturn(false);
+		
+		mvc.perform(delete("/animal/delete/1")
+			.contentType(MediaType.APPLICATION_JSON))
+			.andExpect(status().isOk())
+			.andExpect(content().string("false"));
+	}
 }
