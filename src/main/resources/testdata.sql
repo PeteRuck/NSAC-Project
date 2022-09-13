@@ -1,0 +1,1 @@
+INSERT INTO `animal` (`common_name`, `genus`, `size`, `type_genus`) VALUES ('Fox', 'Vulpes', 50, 'Canidae');
