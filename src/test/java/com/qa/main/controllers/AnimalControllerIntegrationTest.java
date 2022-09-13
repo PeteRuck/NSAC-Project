@@ -2,6 +2,7 @@ package com.qa.main.controllers;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -94,4 +95,21 @@ public class AnimalControllerIntegrationTest {
 			.andExpect(status().isOk())
 			.andExpect(content().json(resultAsJSON));
 	}
+	
+	@Test
+	public void updateTest() throws Exception {
+		Animal update = new Animal("Wolf", "Vulpes", 90, "Canidae");
+		String updateAsJSON = mapper.writeValueAsString(update);
+		
+		Animal response = new Animal(1L, "Wolf", "Vulpes", 90, "Canidae");
+		String responseAsJSON = mapper.writeValueAsString(response);
+		
+		mvc.perform(put("/animal/update/1")
+			.contentType(MediaType.APPLICATION_JSON)
+			.content(updateAsJSON))
+			.andExpect(status().isOk())
+			.andExpect(content().json(responseAsJSON));
+	}
+	
+	
 }
