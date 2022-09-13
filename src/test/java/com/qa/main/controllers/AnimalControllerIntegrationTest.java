@@ -71,4 +71,27 @@ public class AnimalControllerIntegrationTest {
 			.andExpect(content().json(resultAsJSON));
 	}
 	
+	@Test
+	public void getByTypeGenusTest() throws Exception {
+		List<Animal> result = new ArrayList<>();
+		result.add(new Animal(1L, "Fox", "Vulpes", 50, "Canidae"));
+		String resultAsJSON = mapper.writeValueAsString(result);
+		
+		mvc.perform(get("/animal/getByTypeGenus/Canidae")
+			.contentType(MediaType.APPLICATION_JSON))
+			.andExpect(status().isOk())
+			.andExpect(content().json(resultAsJSON));		
+	}
+	
+	@Test
+	public void getByCommonNameContainingTest() throws Exception {
+		List<Animal> result = new ArrayList<>();
+		result.add(new Animal(1L, "Fox", "Vulpes", 50, "Canidae"));
+		String resultAsJSON = mapper.writeValueAsString(result);
+		
+		mvc.perform(get("/animal/getByCommonNameContaining/Fox")
+			.contentType(MediaType.APPLICATION_JSON))
+			.andExpect(status().isOk())
+			.andExpect(content().json(resultAsJSON));
+	}
 }
