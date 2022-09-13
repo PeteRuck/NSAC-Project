@@ -1,5 +1,6 @@
 package com.qa.main.controllers;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
@@ -111,5 +112,9 @@ public class AnimalControllerIntegrationTest {
 			.andExpect(content().json(responseAsJSON));
 	}
 	
-	
+	@Test
+	public void deleteTest() throws Exception {
+		mvc.perform(delete("/animal/delete/1"))
+			.andExpect(status().isOk());
+	}
 }
