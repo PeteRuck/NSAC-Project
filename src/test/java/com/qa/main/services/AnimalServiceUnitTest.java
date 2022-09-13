@@ -25,18 +25,14 @@ public class AnimalServiceUnitTest {
 	
 	@MockBean
 	private AnimalRepo repo;
-	
+
 	@Test
 	public void createTest() {
-		// Create an object for saving
 		Animal input = new Animal("Fox", "Vulpes", 50, "Canidae");
-		
-		// Create an object for the result
 		Animal result = new Animal(2L, "Fox", "Vulpes", 50, "Canidae");
 		
 		Mockito.when(repo.saveAndFlush(input)).thenReturn(result);
 		
-		// assertEquals(expected result, actual result)
 		assertEquals(result, service.create(input));
 	}
 	
@@ -44,7 +40,6 @@ public class AnimalServiceUnitTest {
 	public void getAllTest() {
 		List<Animal> result = new ArrayList<>();
 		result.add(new Animal(1L, "Fox", "Vulpes", 50, "Canidae"));
-		
 		
 		Mockito.when(repo.findAll()).thenReturn(result);
 		
@@ -55,7 +50,6 @@ public class AnimalServiceUnitTest {
 	public void getByIdTest() {
 		Optional<Animal> OptionalOutput = Optional.of(new Animal(1L,"Fox", "Vulpes", 50, "Canidae"));
 		Animal output = new Animal(1L, "Fox", "Vulpes", 50, "Canidae");
-	
 	
 		Mockito.when(repo.findById(1L)).thenReturn(OptionalOutput);
 		
