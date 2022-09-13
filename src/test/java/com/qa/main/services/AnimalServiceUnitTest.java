@@ -26,15 +26,11 @@ public class AnimalServiceUnitTest {
 		
 	@Test
 	public void createTest() {
-		// Create an object for saving
 		Animal input = new Animal("Fox", "Vulpes", 50, "Canidae");
-		
-		// Create an object for the result
 		Animal result = new Animal(2L, "Fox", "Vulpes", 50, "Canidae");
 		
 		Mockito.when(repo.saveAndFlush(input)).thenReturn(result);
 		
-		// assertEquals(expected result, actual result)
 		assertEquals(result, service.create(input));
 	}
 	
@@ -80,5 +76,16 @@ public class AnimalServiceUnitTest {
 		assertEquals(result, service.getByCommonNameContaining("Fox"));
 	}
 		
-	
+	@Test
+	public void updateTest() {
+		Animal input = new Animal("Fox", "Vulpes", 50, "Canidae");
+		Optional<Animal> existing = Optional.of(new Animal(1L, "Fox", "Vulpes", 50, "Canidae"));
+		Animal output = new Animal(1L, "Fox", "Vulpes", 50, "Canidae");
+		
+		Mockito.when(this.repo.findById(1L)).thenReturn(existing);
+		Mockito.when(this.repo.saveAndFlush(output)).thenReturn(output);
+		
+		assertEquals(output, this.service.update(1L, input));
+	}
+
 }
