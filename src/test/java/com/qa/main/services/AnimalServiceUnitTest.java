@@ -1,6 +1,8 @@
 package com.qa.main.services;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -87,5 +89,18 @@ public class AnimalServiceUnitTest {
 		
 		assertEquals(output, this.service.update(1L, input));
 	}
-
+	
+	@Test
+	public void deleteTrueTest() {
+		Mockito.when(this.repo.existsById(1L)).thenReturn(false);
+		
+		assertTrue(this.service.delete(1L));
+	}
+	
+	@Test
+	public void deleteFalseTest() {
+		Mockito.when(this.repo.existsById(1L)).thenReturn(true);
+		
+		assertFalse(this.service.delete(1L));
+	}	
 }
