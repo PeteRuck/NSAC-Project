@@ -17,6 +17,7 @@ import com.qa.main.entities.Animal;
 import com.qa.main.services.AnimalService;
 
 @RestController
+
 @RequestMapping("/animal")
 public class AnimalController {
 
