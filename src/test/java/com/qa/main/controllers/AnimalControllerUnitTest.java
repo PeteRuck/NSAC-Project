@@ -1,8 +1,12 @@
 package com.qa.main.controllers;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -45,6 +49,32 @@ public class AnimalControllerUnitTest {
 			.andExpect(content().json(responseAsJSON));
 	}
 	
+	@Test
+	public void getAllTest() throws Exception {
+		List<Animal> result = new ArrayList<>();
+		result.add(new Animal(1L, "Fox", "Vulpes", 50, "Canidae"));
+		String resultAsJSON = mapper.writeValueAsString(result);
+		
+		Mockito.when(service.getAll()).thenReturn(result);
+		
+		mvc.perform(get("/animal/getAll")
+			.contentType(MediaType.APPLICATION_JSON))
+			.andExpect(status().isOk())
+			.andExpect(content().json(resultAsJSON));
+	}
+	
+	@Test
+	public void getByIdTest() throws Exception {
+		Animal result = new Animal(1L, "Fox", "Vulpes", 50, "Canidae");
+		String resultAsJSON = mapper.writeValueAsString(result);
+		
+		Mockito.when(service.getById(1L)).thenReturn(result);
+		
+		mvc.perform(get("/animal/getById/1")
+			.contentType(MediaType.APPLICATION_JSON))
+			.andExpect(status().isOk())
+			.andExpect(content().json(resultAsJSON));
+	}
 	
 	
 }
