@@ -108,10 +108,10 @@ public class AnimalControllerUnitTest {
 	
 	@Test
 	public void updateTest() throws Exception {
-		Animal update = new Animal("Wolf", "Vulpes", 90, "Canidae"); // Updated info to main entry (body of request)
+		Animal update = new Animal("Wolf", "Vulpes", 90, "Canidae");
 		String updateAsJSON = mapper.writeValueAsString(update);
 		
-		Animal response = new Animal(1L, "Wolf", "Vulpes", 90, "Canidae"); // Expected result (for checking response)
+		Animal response = new Animal(1L, "Wolf", "Vulpes", 90, "Canidae");
 		String responseAsJSON = mapper.writeValueAsString(response);
 		
 		Mockito.when(service.update(1L, update)).thenReturn(response);
