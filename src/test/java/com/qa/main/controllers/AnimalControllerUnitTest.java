@@ -2,6 +2,7 @@ package com.qa.main.controllers;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -102,6 +103,24 @@ public class AnimalControllerUnitTest {
 			.contentType(MediaType.APPLICATION_JSON))
 			.andExpect(status().isOk())
 			.andExpect(content().json(resultAsJSON));
+	}
+	
+	@Test
+	public void updateTest() throws Exception {
+		Animal update = new Animal("Wolf", "Vulpes", 90, "Canidae"); // Updated info to main entry (body of request)
+		String updateAsJSON = mapper.writeValueAsString(update);
+		
+		Animal response = new Animal(1L, "Wolf", "Vulpes", 90, "Canidae"); // Expected result (for checking response)
+		String responseAsJSON = mapper.writeValueAsString(response);
+		
+		Mockito.when(service.update(1L, update)).thenReturn(response);
+		
+		mvc.perform(put("/animal/update/1")
+			.contentType(MediaType.APPLICATION_JSON)
+			.content(updateAsJSON))
+			.andExpect(status().isOk())
+			.andExpect(content().json(responseAsJSON));
+	
 	}
 	
 	
