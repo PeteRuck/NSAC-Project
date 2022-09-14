@@ -1,0 +1,10 @@
+#formDiv {
+    margin-top: 3%;
+    margin-left: 2%;
+    width: 25%;
+    border: solid 2px black;
+    display: inline-grid;
+    padding: 10px;
+}
+
+
