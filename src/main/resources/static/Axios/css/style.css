@@ -2,9 +2,16 @@
     margin-top: 3%;
     margin-left: 2%;
     width: 25%;
-    border: solid 2px black;
+    border: solid 2px rgb(131, 84, 46);
     display: inline-grid;
     padding: 10px;
 }
 
+#resultsDiv {
+    border: solid 2px rgb(131, 84, 46);
+    width: 60%;
+    display: inline-grid;
 
+
+    
+}
