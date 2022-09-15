@@ -3,6 +3,7 @@
 // SELECTORS
 
 // DIVS
+let resultsDiv = document.querySelector("#results-div");
 
 // INPUTS
 let cNameInput = document.querySelector("#cNameInput");
@@ -17,7 +18,6 @@ let updateBtn = document.querySelector("#updateBtn");
 let deleteBtn = document.querySelector("#deleteBtn");
 
 // FUNCTIONS
-
 let printResults = (result) => {
     let entryParent = document.createElement("div");
     entryParent.setAttribute("class", "entry-parent");
