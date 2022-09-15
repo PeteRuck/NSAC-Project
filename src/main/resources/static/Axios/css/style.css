@@ -7,7 +7,7 @@
     padding: 10px;
 }
 
-#resultsDiv {
+#results-div {
     border: solid 2px rgb(131, 84, 46);
     width: 60%;
     display: inline-grid;

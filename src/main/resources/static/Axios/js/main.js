@@ -26,14 +26,9 @@ let printResults = (result) => {
     entryDiv.setAttribute("class", "entry-div");
     entryDiv.textContent = `${result.id} | ${result.commonName} | ${result.genus} | ${result.size} | ${result.typeGenus}`;
 
-    let delBtn = document.createElement("button");
-    delBtn.textContent = "Delete";
-    delBtn.type = "button";
-    delBtn.setAttribute("Class", "btn btn-danger btn-sm");
-    delBtn.setAttribute("onClick", `del(${result.id})`);
+   
 
     entryParent.appendChild(entryDiv);
-    entryParent.appendChild(delBtn);
     resultsDiv.appendChild(entryparent);
 }
 
@@ -55,7 +50,7 @@ let getAll = () => {
 let create = () => {
 
     if(!validateInputs()){
-        alert("All fields nee a value!");
+        alert("All fields need a value!");
         return
     }
 
@@ -93,14 +88,6 @@ let del = (id) => {
         getAll();
     }).catch(err => console.log(err));
 }
-
-let validateDelete = () => {
-    if (idInput.value === "") {
-        alert("ID is needed for this to work");
-        return false;
-    } else {
-        return true;
-}}
 
 let validateInputs = () => {
     if (cNameInput.value === "" || genusInput.value === "" || sizeInput.value === "" || gTypeInput.value) {
