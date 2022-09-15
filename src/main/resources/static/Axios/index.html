@@ -100,14 +100,18 @@
                       <option value="Ailuridae">
                 </datalist></li>
               </select>
-                <button type="button" id="createBtn" class="btn btn-success" style=>Create</button>
-                <!-- <button type="button" id="updateBtn" class="btn btn-primary" style=>Update</button> -->
+              <div class="col-md-3">
+                <label for="inputid" class="form-label">ID</label>
+                <input type="number" class="form-control" id="idInput">
+              </div>-----------------------------------------------------------------------
+                <button type="button" id="createBtn" class="btn btn-success" style=>Create</button>-----------------------------------------------------------------------
+                <button type="button" id="updateBtn" class="btn btn-primary" style=>Update</button>-----------------------------------------------------------------------
                 <button type="button" id="deleteBtn" class="btn btn-danger" style=>Delete</button>
           </div>
         </div>
       </div>
     <div id="results-div">
-              <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+              <!-- <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                 Edit
               </button>
               <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" 
@@ -139,11 +143,12 @@
                     <div class="modal-footer">
                       <button type="button"  class="btn btn-primary" data-bs-dismiss="modal">Close</button>
                       <button type="button" id="updateBtn" class="btn btn-outline-success">Update</button>
+                      <a href="#my_modal" data-toggle="modal" data-book-id="my_id_value">Get ID data</a>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
     </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" 
         integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>

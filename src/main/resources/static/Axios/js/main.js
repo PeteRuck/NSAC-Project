@@ -24,12 +24,12 @@ let printResults = (result) => {
 
     let entryDiv = document.createElement("div");
     entryDiv.setAttribute("class", "entry-div");
-    entryDiv.textContent = `${result.id} | ${result.commonName} | ${result.genus} | ${result.size} | ${result.typeGenus}`;
+    entryDiv.textContent = `${result.id} --|-- ${result.commonName} --|-- ${result.genus} --|-- ${result.size} --|-- ${result.typeGenus}`;
 
    
 
     entryParent.appendChild(entryDiv);
-    resultsDiv.appendChild(entryparent);
+    resultsDiv.appendChild(entryParent);
 }
 
 // Get All
@@ -53,7 +53,7 @@ let create = () => {
         "commonName": cNameInput.value,
         "genus": genusInput.value,
         "size": sizeInput.value,
-        "type_Genus": gTypeInput.value
+        "typeGenus": gTypeInput.value
     }
     axios.post("http://localhost:8080/animal/create", obj)
     .then(res => {
@@ -67,7 +67,7 @@ let update = () => {
         "commonName": cNameInput.value,
         "genus": genusInput.value,
         "size": sizeInput.value,
-        "type_Genus": gTypeInput.value
+        "typeGenus": gTypeInput.value
     }
     axios.put(`http://localhost:8080/animal/update/${idInput.value}`, obj)
     .then((resp) => {
@@ -77,20 +77,20 @@ let update = () => {
 
 // Delete
 let del = (id) => {
-    axios.delete(`http://localhost:8080/animal/delete/${id}`)
-    .then(resp => {
+    axios.delete(`http://localhost:8080/animal/delete/${idInput.value}`)
+    .then(res => {
         console.log(res.data);
         getAll();
     }).catch(err => console.log(err));
 }
 
-// let validateInputs = () => {
-//     if (cNameInput.value === "" || genusInput.value === "" || sizeInput.value === "" || gTypeInput.value) {
-//         return false;
-//     } else {
-//         return true;
-//     }
-// }
+let validateInputs = () => {
+    if (cNameInput.value === "" || genusInput.value === "" || sizeInput.value === "" || gTypeInput.value) {
+        return false;
+    } else {
+        return true;
+    }
+}
 
 // EVENT LISTENERS
 createBtn.addEventListener("click", create);
