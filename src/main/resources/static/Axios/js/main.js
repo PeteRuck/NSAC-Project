@@ -49,11 +49,6 @@ let getAll = () => {
 // Create
 let create = () => {
 
-    if(!validateInputs()){
-        alert("All fields need a value!");
-        return
-    }
-
     let obj = {
         "commonName": cNameInput.value,
         "genus": genusInput.value,
@@ -89,13 +84,13 @@ let del = (id) => {
     }).catch(err => console.log(err));
 }
 
-let validateInputs = () => {
-    if (cNameInput.value === "" || genusInput.value === "" || sizeInput.value === "" || gTypeInput.value) {
-        return false;
-    } else {
-        return true;
-    }
-}
+// let validateInputs = () => {
+//     if (cNameInput.value === "" || genusInput.value === "" || sizeInput.value === "" || gTypeInput.value) {
+//         return false;
+//     } else {
+//         return true;
+//     }
+// }
 
 // EVENT LISTENERS
 createBtn.addEventListener("click", create);
