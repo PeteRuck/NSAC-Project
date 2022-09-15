@@ -49,6 +49,11 @@ let getAll = () => {
 // Create
 let create = () => {
 
+    if(!validateInputs()){
+        alert("All fields require a infornmation to Create!!");
+        return
+    }
+
     let obj = {
         "commonName": cNameInput.value,
         "genus": genusInput.value,
@@ -85,7 +90,7 @@ let del = (id) => {
 }
 
 let validateInputs = () => {
-    if (cNameInput.value === "" || genusInput.value === "" || sizeInput.value === "" || gTypeInput.value) {
+    if (cNameInput.value === "" || genusInput.value === "" || sizeInput.value === "" || gTypeInput.value === "") {
         return false;
     } else {
         return true;
