@@ -32,7 +32,7 @@ It should now be cloned into your *NSACProject* folder
 5. Enter the command: `java –jar BAE15Spring-NSACP1-0.0.1-SNAPSHOT.jar`
 6. In your browser now navigate to `http://localhost:8080/index.html`
 
-* [Screenshot](SiteScreenshot.pdf)
+* [Screenshot](https://github.com/PeteRuck/NSAC-Project/blob/main/Documentation/SiteScreenshot.pdf)
 
 ## Running the tests
 
@@ -50,7 +50,7 @@ The main objective of unit testing is to isolate written code to test and determ
 3. Slide across to `1 JUnit Test` then left click.
 (As per visulisation in .pdf)
 
-* [Unit tests](AnimalControllerUnitTest.pdf)
+* [Unit tests](https://github.com/PeteRuck/NSAC-Project/blob/main/Documentation/AnimalControllerUnitTest.pdf)
 
 ### Integration Tests
 
@@ -63,15 +63,15 @@ The purpose of integration testing is to expose faults in the interaction betwee
 3. Slide across to `1 JUnit Test` then left click.
 (As per visulisation in .pdf)
 
-* [Integration test](AnimalControllerIntegrationTest.pdf)
+* [Integration test](https://github.com/PeteRuck/NSAC-Project/blob/main/Documentation/AnimalControllerIntegrationTest.pdf)
 
 ## Swagger API Endpoints
 
-* [Swagger](Swagger_API.pdf) - 
+* [Swagger](https://github.com/PeteRuck/NSAC-Project/blob/main/Documentation/Swagger_API.pdf)
 
 ## Project Management Board
 
-* [Jira](https://pruck.atlassian.net/jira/software/projects/NP1/boards/2/roadmap) - 
+* [Jira](https://pruck.atlassian.net/jira/software/projects/NP1/boards/2/roadmap) 
 
 ## Built With
 
