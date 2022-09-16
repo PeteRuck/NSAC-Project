@@ -27,7 +27,7 @@ let printResults = (result) => {
 
     let entryDiv = document.createElement("div");
     entryDiv.setAttribute("class", "entry-div");
-    entryDiv.textContent = `${result.id} --|-- ${result.commonName} --|-- ${result.genus} --|-- ${result.size}cm --|-- ${result.typeGenus}`;
+    entryDiv.textContent = `id ${result.id} --|-- ${result.commonName} --|-- ${result.genus} --|-- ${result.size}cm --|-- ${result.typeGenus}`;
 
    
 
